@@ -1,0 +1,1 @@
+a sorting algorithm i wrote in the same day with no deep knowledge of c++
