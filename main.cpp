@@ -3,9 +3,9 @@
 
 
 
-bool checkSort(int arr[5]){
+bool checkSort(int arr[],int size){
     ///checks if the array is sorted
-    for(int i = 0;i < 4;){///loops through the array
+    for(int i = 0;i < size-1;){///loops through the array
         int j = i+1;///j is the value after i
 
         if(arr[j] < arr[i]){///if a pair is out of order
@@ -21,9 +21,9 @@ bool checkSort(int arr[5]){
 }
 
 
-void sortArr(int arr[5]){ ///sorts the array
-    while(!checkSort(arr)){///continue sorting until the array is sorted
-        for(int i = 0; i < 4;) ///loops through the array
+void sortArr(int arr[],int size){ ///sorts the array
+    while(!checkSort(arr,size)){///continue sorting until the array is sorted
+        for(int i = 0; i < size-1;) ///loops through the array
         {
             int j = i+1; ///gets the value after i
             if(arr[j] < arr[i]){ ///if the pair arent in order
@@ -42,10 +42,19 @@ void sortArr(int arr[5]){ ///sorts the array
 
 }
 
-void getArrFromUser(int arr[5]){
+int getSizeFromUser(){
+    int size{};
+    std::cout << "enter the size of the array: \n";
+    std::cin >> size;
+
+
+    return size;
+}
+
+void getArrFromUser(int arr[],int size){
     ///gets a 5 elemnt array from the user
-    std::cout << "enter a 5 element array: \n";
-    for(int i = 0; i < 5;){
+    std::cout << "enter a " << size <<" elements array: \n";
+    for(int i = 0; i < size;){
         std::cin >> arr[i];
         ++i;
     }
@@ -55,15 +64,28 @@ void getArrFromUser(int arr[5]){
     return;
 }
 
-int main(){
-    int arr[5] = {};
-    getArrFromUser(arr);
-    sortArr(arr);///sorts the array
-    for(int i = 0; i < 5;){ 
+void printArr(int arr[],int size){
+
+    for(int i = 0; i < size;){ 
         ///prints the array
         std::cout << arr[i] << ' ';
         ++i;
     }
+
+
+
+
+
+
+    return;
+}
+
+int main(){
+    int size=getSizeFromUser();
+    int arr[size] = {};
+    getArrFromUser(arr,size);
+    sortArr(arr,size);///sorts the array
+    printArr(arr,size);
 
     
 
