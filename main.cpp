@@ -71,12 +71,6 @@ void printArr(int arr[],int size){
         std::cout << arr[i] << ' ';
         ++i;
     }
-
-
-
-
-
-
     return;
 }
 
